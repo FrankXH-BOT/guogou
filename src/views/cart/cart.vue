@@ -126,6 +126,7 @@
       },
       onSubmit() {
         console.log(this.price / 100);
+        this.$router.push('/alipay')
       },
       checkAll() {
         console.log(this.check);

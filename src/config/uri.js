@@ -18,4 +18,6 @@ export default {
 
     //参数goods_id   common_id
     getdetail:"http://127.0.0.1/city.php?api_version=2.3.0&platType=2&client=wap&isEncry=0&time=1608853631804&act=goods&op=goodsList",
+    //支付宝二维码
+    getAlipay:"https://m.28sjw.com/order/getQR.php"
 }
