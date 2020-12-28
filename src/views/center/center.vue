@@ -2,7 +2,7 @@
   <div class="center1">
     <!--头部  -->
     <div>
-      <i class="iconfont icon-shezhi1 setting"></i>
+      <i class="iconfont icon-shezhi1 setting" @click="run"></i>
     </div>
     <div>
       <div class="header">
@@ -43,7 +43,7 @@
       </div>
       <div class="listTop">
         <van-grid :column-num="5" :border="false">
-          <van-grid-item text="待支付">
+          <van-grid-item text="待支付" @click="gocart">
             <img
               src="https://img07.yiguoimg.com/d/web/180608/01261/105825/unpaid.png"
               alt=""
@@ -79,7 +79,7 @@
       </div>
       <div class="main">
         <van-grid :column-num="4">
-          <van-grid-item class="main_list" text="文字">
+          <van-grid-item class="main_list" text="文字" @click="goDiscount">
             <img
               src="https://img07.yiguoimg.com/d/web/181029/00591/155051/coupons.png"
             />
@@ -97,7 +97,7 @@
             />
             <span>提货券</span>
           </van-grid-item>
-          <van-grid-item class="main_list" text="文字">
+          <van-grid-item class="main_list" text="文字" @click="goAddress">
             <img
               src="https://img07.yiguoimg.com/d/web/181029/00591/155051/address.png"
             />
@@ -156,11 +156,22 @@
       this.$router.push("/balance");
 
       },
-  getQuestion(){
-      this.$router.push("/question");
+    getQuestion(){
+        this.$router.push("/question");
 
-  }
-
+    },
+      goDiscount() {
+        this.$router.push("/discount");
+      },
+      goAddress() {
+        this.$router.push("/address");
+      },
+      run(){
+        this.$router.push("/Logout")
+      },
+      gocart(){
+        this.$router.push("/cart")
+      }
     },
     created() {
       let x = localStorage.getItem("jwt");
