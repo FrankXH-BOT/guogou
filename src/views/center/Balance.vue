@@ -2,7 +2,7 @@
     <div>
         <div>
          <van-nav-bar
-      title="余额"
+      title="当前可用余额"
       left-text="返回"
       left-arrow
       @click-left="onClickLeft"
@@ -11,6 +11,9 @@
     <div class="zt">
       
         <strong>￥1000000000000000000000000</strong>
+    </div>
+    <div class="text">
+        如需充值请联系10086说我要充值
     </div>
     </div>
 </template>
@@ -22,17 +25,30 @@ export default {
         this.$router.go(-1);
       },
     },
+    created() {
+        this.$store.commit("isShowFooterNav", false);
+    },
+    beforeDestroy() {
+        this.$store.commit("isShowFooterNav", true);
+        
+    },
 }
 </script>
 <style lang="scss" scope>
 .zt{
     text-align: center;
-    
+     margin-top: 50px;
     strong{
         color: red;
         font-size: 1.125rem;
     }
 
+}
+.text{
+    font-size: 15px;
+    text-align: center;
+    color: red;
+    margin-top: 100px;
 }
     
 </style>

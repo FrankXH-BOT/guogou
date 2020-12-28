@@ -8,9 +8,13 @@ export default new Vuex.Store({
     jwt: '',
     onecity:"",
     twocity:"",
-    city:""
+    city:"",
+    isShowFooter: true,
   },
   mutations: {
+    isShowFooterNav(state, val) {
+      state.isShowFooter = val;
+  },
     setJwt(state,val) {
       
       localStorage.setItem('jwt', val);
