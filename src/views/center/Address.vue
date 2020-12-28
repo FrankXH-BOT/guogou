@@ -1,7 +1,7 @@
 <template>
   <div>
     <van-nav-bar
-      title="优惠券"
+      title="地址"
       left-text="返回"
       left-arrow
       @click-left="onClickLeft"
@@ -28,21 +28,7 @@
     data() {
       return {
         chosenAddressId: "1",
-        list: [
-          {
-            id: "1",
-            name: "张三",
-            tel: "13333333333",
-            address: "浙江省杭州市西湖区文三路 138 号东方通信大厦 7 楼 501 室",
-            isDefault: true,
-          },
-          {
-            id: "2",
-            name: "李四",
-            tel: "13333333333",
-            address: "浙江省杭州市拱墅区莫干山路 50 号",
-          },
-        ],
+        list: [],
         disabledList: [
           {
             id: "3",
@@ -55,7 +41,7 @@
     },
     methods: {
       onAdd() {
-        console.log(111);
+        this.$router.push("/addAddress");
       },
       onEdit(item, index) {
         console.log(index);
@@ -64,6 +50,21 @@
         // Toast("返回");
         this.$router.push("/center");
       },
+    },
+    created() {
+      console.log(123);
+      this.$http.get("/api/info").then((ret) => {
+        if (ret.code == 0) {
+          this.list = JSON.parse(localStorage.getItem(ret.userinfo.mobile + ':address'));
+          console.log(this.list);
+        } else {
+          Toast(ret.msg);
+          this.$router.push("/user/login");
+        }
+      });
+    },
+    mounted() {
+      console.log(123);
     },
   };
 </script>

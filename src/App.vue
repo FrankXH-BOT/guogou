@@ -15,7 +15,7 @@ export default {
   components: {
         Footer,
         
-    },
+    }, 
     created() {
       let jwt = localStorage.getItem('jwt');
       if(jwt) {

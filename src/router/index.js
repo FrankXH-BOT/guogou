@@ -32,7 +32,7 @@ const router = new VueRouter({
   routes,
 })
 
-router.beforeEach((to,from,next) => {
+router.beforeEach((to, from, next) => {
   let arr = [
     '/cart',
     '/address',
@@ -40,14 +40,16 @@ router.beforeEach((to,from,next) => {
     "/Logout",
     '/balance',
   ];
-  if(arr.includes(to.path) && !localStorage.getItem('jwt')) {
-    axios.get('/api/info').then(ret=>{
-      if(ret.code != 0) {
+  if (arr.includes(to.path)) {
+    axios.get('/api/info').then(ret => {
+      if (ret.code != 0) {
+        localStorage.setItem('jwt', '');
         console.log(to);
-        router.push({path:'/user/login',query: {toUrl:to.fullPath}});
+        router.push({ path: '/user/login', query: { toUrl: to.fullPath } });
       }
+      next();
     })
-  }else {
+  } else {
     next();
   }
 })
