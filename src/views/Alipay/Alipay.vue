@@ -28,7 +28,7 @@ export default {
         this.$http.get(uri.getAlipay).then((ret) => {
           
              this.aa='https:'+ret
-           
+                
            
           
            
