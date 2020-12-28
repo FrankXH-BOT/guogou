@@ -3,6 +3,11 @@ import Center from "@/views/center/center";
 import LR from "@/views/center/LR";
 import Login from "@/views/center/Login";
 import Register from "@/views/center/Register";
+import Balance from "@/views/center/Balance";
+import Question from "@/views/center/Question";
+
+
+
 export default [
     {
         path: "/center", component: Center,
@@ -18,7 +23,14 @@ export default [
             {
                 path: "register", component: Register,
             },
+           
         ]
+    },
+     {
+        path: "/balance", component: Balance,
+    },
+    {
+        path: "/question", component: Question,
     },
 ]
 
