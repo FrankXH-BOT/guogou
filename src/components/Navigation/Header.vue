@@ -1,6 +1,6 @@
 <template>
 <div class="first-screen-top">
-    <div  class="adress"><span>{{$store.state.twocity}}</span> <i class="arrow" @click="getcity"></i></div>
+    <div  class="adress"><span style="font-size:12px">{{$store.state.twocity}}</span> <i class="arrow" @click="getcity"></i></div>
   <div class="sousuo">
   <van-search @focus="tiaozhuan" v-model="value" placeholder="请输入搜索关键词" shape="round" background="#4fc08d" />
   </div>

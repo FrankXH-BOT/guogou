@@ -79,7 +79,7 @@
       </div>
       <div class="main">
         <van-grid :column-num="4">
-          <van-grid-item class="main_list" text="文字">
+          <van-grid-item class="main_list" text="文字" @click="goDiscount">
             <img
               src="https://img07.yiguoimg.com/d/web/181029/00591/155051/coupons.png"
             />
@@ -97,7 +97,7 @@
             />
             <span>提货券</span>
           </van-grid-item>
-          <van-grid-item class="main_list" text="文字">
+          <van-grid-item class="main_list" text="文字" @click="goAddress">
             <img
               src="https://img07.yiguoimg.com/d/web/181029/00591/155051/address.png"
             />
@@ -151,6 +151,12 @@
       },
       signUp() {
         this.$router.push("/user/register");
+      },
+      goDiscount() {
+        this.$router.push("/discount");
+      },
+      goAddress() {
+        this.$router.push("/address");
       },
     },
     created() {
