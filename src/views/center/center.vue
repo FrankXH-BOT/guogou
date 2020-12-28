@@ -103,7 +103,7 @@
             />
             <span>收货地址</span>
           </van-grid-item>
-          <van-grid-item class="main_list" text="文字">
+          <van-grid-item class="main_list" text="文字" @click="getQuestion">
             <img
               src="https://img06.yiguoimg.com/d/web/181029/00591/155051/help.png"
             />
@@ -115,7 +115,7 @@
             />
             <span>我的团购</span>
           </van-grid-item>
-          <van-grid-item class="main_list" text="文字">
+          <van-grid-item class="main_list" text="文字" @click="getBalance">
             <img
               src="https://img06.yiguoimg.com/d/web/181121/00591/143839/account-icon.png"
             />
@@ -152,6 +152,14 @@
       signUp() {
         this.$router.push("/user/register");
       },
+      getBalance(){
+      this.$router.push("/balance");
+
+      },
+    getQuestion(){
+        this.$router.push("/question");
+
+    },
       goDiscount() {
         this.$router.push("/discount");
       },

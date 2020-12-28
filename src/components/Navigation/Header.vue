@@ -34,20 +34,20 @@ export default {
 <style lang="scss" scoped>
 .adress{
     float: left;
-        width: 20%;
-       height: 54px;
-       text-align: center;
-       
-       background:#4fc08d;
+    width: 20%;
+    height: 54px;
+    text-align: center;
+    background:#4fc08d;
     color: #fff;
     span{
+        width: 20%;
         line-height: 54px;
-       font-size: 18px;
-
+        font-size: .46rem;
     }
+    
  .arrow {
     display: inline-block;
-    width: 15px;
+    width: 10%;
     height: 5.6px;
     padding: 0 2px;
     background: url(https://img05.yiguoimg.com/e/web/161222/01858/110628/arrow.png) no-repeat;
