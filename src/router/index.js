@@ -10,7 +10,7 @@ import Detail from "./routes/detail"
 import Center from "./routes/center";
 
 import axios from "@/api/http";
-
+import alipay from './routes/alipay'
 
 Vue.use(VueRouter)
 
@@ -22,6 +22,7 @@ const routes = [
   cart,
   list,
   Detail,
+  alipay,
 
   ...Center,
   { path: "*", component: Notfound },

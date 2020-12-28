@@ -2,7 +2,7 @@
   <div class="foot">
     <van-tabbar v-model="active" placeholder  @change="changeTab" active-color="rgb(79, 192, 141)">
       <van-tabbar-item ><van-icon
-                    class="iconfont icon-index"
+                    class="iconfont icon-index-copy"
                     slot="icon"
                     size="25px"
                 />首页</van-tabbar-item>
