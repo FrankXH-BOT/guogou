@@ -32,11 +32,14 @@
         this.$router.push(this.url[this.active]);
       },
       onClickLeft() {
-        this.$router.push('/center');
-      }
+        this.$router.push("/center");
+      },
     },
     created() {
-      this.active = this.url.indexOf(this.$route.path);
+      this.$store.commit("isShowFooterNav", false);
+    },
+    beforeDestroy() {
+      this.$store.commit("isShowFooterNav", true);
     },
     watch: {
       $route: function(val) {

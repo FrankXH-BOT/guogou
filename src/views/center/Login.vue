@@ -41,12 +41,6 @@
         pattern: /^1[3-9]\d{9}$/,
       };
     },
-    created() {
-        this.$store.commit("isShowFooterNav", false);
-    },
-    beforeDestroy() {
-        this.$store.commit("isShowFooterNav", true);  
-    },
     methods: {
       onSubmit(values) {
         // console.log("submit", values);

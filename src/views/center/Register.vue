@@ -51,12 +51,6 @@
         code: 0,
       };
     },
-    created() {
-        this.$store.commit("isShowFooterNav", false);
-    },
-    beforeDestroy() {
-        this.$store.commit("isShowFooterNav", true);
-    },
     methods: {
       justify() {
         if (this.pattern.test(this.mobile)) {
