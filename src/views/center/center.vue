@@ -2,7 +2,7 @@
   <div class="center1">
     <!--头部  -->
     <div>
-      <i class="iconfont icon-shezhi1 setting"></i>
+      <i class="iconfont icon-shezhi1 setting" @click="run"></i>
     </div>
     <div>
       <div class="header">
@@ -43,7 +43,7 @@
       </div>
       <div class="listTop">
         <van-grid :column-num="5" :border="false">
-          <van-grid-item text="待支付">
+          <van-grid-item text="待支付" @click="gocart">
             <img
               src="https://img07.yiguoimg.com/d/web/180608/01261/105825/unpaid.png"
               alt=""
@@ -158,6 +158,12 @@
       goAddress() {
         this.$router.push("/address");
       },
+      run(){
+        this.$router.push("/Logout")
+      },
+      gocart(){
+        this.$router.push("/cart")
+      }
     },
     created() {
       let x = localStorage.getItem("jwt");

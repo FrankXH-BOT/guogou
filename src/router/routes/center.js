@@ -5,10 +5,14 @@ import Login from "@/views/center/Login";
 import Register from "@/views/center/Register";
 import Discount from "@/views/center/Discount";
 import Address from "@/views/center/Address";
+import Logout from "@/views/center/Logout"
 export default [
     {path: "/center", component: Center},
     { path: '/discount', component: Discount },
     { path: '/address', component: Address },
+    {
+        path:"/Logout",component:Logout
+    },
     {
         path: '/user',
         component: LR,
