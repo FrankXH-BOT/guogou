@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <van-cell is-link @click="showPopup">当前地区{{ city }}</van-cell>
+    <van-cell is-link @click="showPopup">当前地区{{ $store.state.city }}</van-cell>
     <van-popup v-model="show" position="bottom" style="height: 60%">
       <van-picker
         title="选择地区"
@@ -54,8 +54,8 @@ export default {
       this.show = true;
     },
     onConfirm(val, index) {
-      // console.log(val,index);
-      
+      console.log(val,index);
+      this.$store.commit("setonecity",val)
       let x = 340;
       this.$http.post(url.getcitytwo + x).then((ret) => {
           this.columnstwo = []
@@ -74,8 +74,9 @@ export default {
         this.showtwo = false;
         this.show = true
     },
-    onConfirmtwo(){
-        this.$router.push("/")
+    onConfirmtwo(val){
+      this.$store.commit("settwocity",val)
+      this.$router.push("/")
     }
   },
 };

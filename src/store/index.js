@@ -6,6 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     jwt: '',
+    onecity:"",
+    twocity:"",
+    city:""
   },
   mutations: {
     setJwt(state,val) {
@@ -13,6 +16,19 @@ export default new Vuex.Store({
       localStorage.setItem('jwt', val);
       state.jwt = val;
     },
+    setonecity(state,val){
+      state.onecity = val;
+    },
+    settwocity(state,val){
+      state.twocity = val;
+      state.city = state.onecity + state.twocity
+      let cc = {
+        onecity : state.onecity,
+        twocity : state.twocity,
+        city : state.city,
+      }
+      localStorage.setItem("city",JSON.stringify(cc))
+    }
   },
   actions: {
   },

@@ -21,6 +21,14 @@ export default {
       if(jwt) {
         this.$store.commit('setJwt',jwt);
       }
+      let city = JSON.parse(localStorage.getItem("city"))
+      if(city){
+        this.$store.commit("setonecity",city.onecity)
+        this.$store.commit("settwocity",city.twocity)
+      }else{
+        this.$store.commit("setonecity","安徽省")
+        this.$store.commit("settwocity","安庆市")
+      }
     },
 }
 </script>
