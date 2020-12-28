@@ -73,5 +73,11 @@
         this.$router.go(-1);
       },
     },
+    created() {
+        this.$store.commit("isShowFooterNav", false);
+    },
+    beforeDestroy() {
+        this.$store.commit("isShowFooterNav", true);
+    },
   };
 </script>
