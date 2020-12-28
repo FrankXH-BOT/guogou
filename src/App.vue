@@ -4,7 +4,7 @@
     
     <!-- <router-view/> -->
     <router-view></router-view>
-    <Footer ></Footer>
+    <Footer  v-show="$store.state.isShowFooter" ></Footer>
 
   </div>
 </template>

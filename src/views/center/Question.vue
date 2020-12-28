@@ -1,6 +1,11 @@
 <template>
     <div>
-      
+      <div> <van-nav-bar
+      title="常见问题"
+      left-text="返回"
+      left-arrow
+      @click-left="onClickLeft"
+    /></div>
  <van-collapse v-model="activeNames">
   <van-collapse-item title=" 配送运费如何收取，多少钱包邮？ " name="1">   1、易果物流配送区域范围内购物满100元，免费送货；不满100元，每单收取10元运费，特殊区域以系统实际计算为准。<br /> 2、其他地区运费按照第三方物流的收费标准执行，选好商品及收货地址后会自动计算。</van-collapse-item>
   <van-collapse-item title="配送区域及送达时间？" name="2">参见配送范围和时间</van-collapse-item>
@@ -52,8 +57,20 @@ Vue.use(CollapseItem);
 export default {
      data() {
     return {
-      activeNames: ['1'],
+      activeNames: [],
     };
   },
+  methods: {
+         onClickLeft() {
+        this.$router.go(-1);
+      },
+    },
+    created() {
+        this.$store.commit("isShowFooterNav", false);
+    },
+    beforeDestroy() {
+        this.$store.commit("isShowFooterNav", true);
+        
+    },
 }
 </script>
