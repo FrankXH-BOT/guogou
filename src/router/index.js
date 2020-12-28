@@ -33,6 +33,7 @@ const router = new VueRouter({
 router.beforeEach((to,from,next) => {
   let arr = [
     '/cart',
+    "/Logout",
   ];
   if(arr.includes(to.path) && !localStorage.getItem('jwt')) {
     console.log(to);
