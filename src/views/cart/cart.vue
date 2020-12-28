@@ -159,6 +159,7 @@
       },
     },
     async created() {
+      this.$store.commit("isShowFooterNav", false);
       let ret = await this.$http("/api/info");
       if (ret.code == 0) {
         this.mobile = ret.userinfo.mobile;
@@ -181,6 +182,9 @@
       } else {
         this.lookList = true;
       }
+    },
+    beforeDestroy() {
+      this.$store.commit("isShowFooterNav", true);
     },
     watch: {
       datas: {

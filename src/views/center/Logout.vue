@@ -29,6 +29,7 @@ export default {
         }
     },
     created() {
+      this.$store.commit("isShowFooterNav", false);
       let x = localStorage.getItem("jwt");
       if (!x) {
         return;
@@ -52,6 +53,9 @@ export default {
         onClickLeft(){
             this.$router.push("/center")
         }
-    }
+    },
+    beforeDestroy() {
+        this.$store.commit("isShowFooterNav", true);
+    },
 };
 </script>
