@@ -7,11 +7,13 @@ import Balance from "@/views/center/Balance";
 import Question from "@/views/center/Question";
 import Discount from "@/views/center/Discount";
 import Address from "@/views/center/Address";
+import AddAddress from "@/views/center/AddAddress";
 import Logout from "@/views/center/Logout"
 export default [
     {path: "/center", component: Center},
     { path: '/discount', component: Discount },
     { path: '/address', component: Address },
+    { path: '/addaddress', component: AddAddress },
     {
         path:"/Logout",component:Logout
     },
