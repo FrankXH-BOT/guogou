@@ -9,6 +9,8 @@ import Detail from "./routes/detail"
 
 import Center from "./routes/center";
 
+import axios from "@/api/http";
+
 
 Vue.use(VueRouter)
 
@@ -33,11 +35,17 @@ const router = new VueRouter({
 router.beforeEach((to,from,next) => {
   let arr = [
     '/cart',
+    '/address',
+    '/discount',
     "/Logout",
   ];
   if(arr.includes(to.path) && !localStorage.getItem('jwt')) {
-    console.log(to);
-    router.push({path:'/user/login',query: {toUrl:to.fullPath}});
+    axios.get('/api/info').then(ret=>{
+      if(ret.code != 0) {
+        console.log(to);
+        router.push({path:'/user/login',query: {toUrl:to.fullPath}});
+      }
+    })
   }else {
     next();
   }
