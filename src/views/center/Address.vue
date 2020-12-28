@@ -62,7 +62,7 @@
       },
       onClickLeft() {
         // Toast("返回");
-        this.$router.go(-1);
+        this.$router.push("/center");
       },
     },
   };
