@@ -38,6 +38,7 @@ router.beforeEach((to,from,next) => {
     '/address',
     '/discount',
     "/Logout",
+    '/balance',
   ];
   if(arr.includes(to.path) && !localStorage.getItem('jwt')) {
     axios.get('/api/info').then(ret=>{
