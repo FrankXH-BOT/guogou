@@ -36,6 +36,7 @@
       },
     },
     created() {
+      this.active = this.url.indexOf(this.$route.path);
       this.$store.commit("isShowFooterNav", false);
     },
     beforeDestroy() {
@@ -43,7 +44,7 @@
     },
     watch: {
       $route: function(val) {
-        // console.log(val);
+        console.log(val);
         this.active = this.url.indexOf(val.path);
       },
     },
