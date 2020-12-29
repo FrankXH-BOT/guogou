@@ -1,63 +1,53 @@
 <template>
-<div>
-
- <div>
-         <van-nav-bar
-      title="请扫支付码"
-      left-text="返回"
-      left-arrow
-      @click-left="onClickLeft"
-    />
+  <div>
+    <div>
+      <van-nav-bar
+        title="请扫支付码"
+        left-text="返回"
+        left-arrow
+        @click-left="onClickLeft"
+      />
     </div>
     <div class="imga">
-        <img :src="aa" alt="">
+      <img :src="aa" alt="" />
     </div>
-    </div>
+  </div>
 </template>
 <script>
-import uri from "@/config/uri";
-export default {
+  import uri from "@/config/uri";
+  export default {
     data() {
-        return {
-            aa:'',
-            cc:""
-        }
+      return {
+        aa: "",
+        cc: "",
+      };
     },
-    
+
     created() {
-        
-   
-     fetch(uri.getAlipay, {
-    method: "post",		
-    body: " _s=sss&_f=0.01&_t=2",	
-    headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        fetch(uri.getAlipay, {
+          method: "post",
+          body: " _s=sss&_f=0.01&_t=2",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            this.aa = "https:" + data.qr_code;
+            this.cc = data.order_id;
+          });
+      setTimeout(() => {
+        this.getyz();
+      }, 120000);
+
+      this.$store.commit("isShowFooterNav", false);
     },
-	})
-    .then(res => res.json())
-    .then(data =>{
-        this.aa='https:'+data.qr_code;
-        this.cc=data.order_id;
-        
-    });
-    setTimeout(() => {
-         this.getyz()
-        
-        
-    },10000);
 
-
-
-    
-            this.$store.commit("isShowFooterNav", false);
-    },
-     
     beforeDestroy() {
-        this.$store.commit("isShowFooterNav", true);
-        
+      this.$store.commit("isShowFooterNav", true);
     },
     methods: {
-         onClickLeft() {
+      onClickLeft() {
         this.$router.go(-1);
       },
       getyz(){
@@ -75,11 +65,10 @@ export default {
 }}
 </script>
 <style lang="scss" scope>
-   .imga{
-       width: 100%;
-       height: 100%;
-       margin: 50% auto;
-       text-align: center;
-   }
-    
+  .imga {
+    width: 100%;
+    height: 100%;
+    margin: 50% auto;
+    text-align: center;
+  }
 </style>
