@@ -50,21 +50,19 @@
       onClickLeft() {
         this.$router.go(-1);
       },
-      getyz() {
-        this.$http
-          .get(uri.getorderPayStatusCheck + `?_oid=${this.cc}`)
-          .then((ret) => {
-            if (ret.data.order_status == 0) {
-              alert("超时了兄弟");
-              this.$router.go(0);
-            }
-            if (ret.data.order_status == 1) {
-              alert("干得漂亮");
-            }
-          });
-      },
-    },
-  };
+      getyz(){
+           this.$http.get(uri.getorderPayStatusCheck+`?_oid=${this.cc}`).then(ret=>{
+        if(ret.data.order_status==0){
+         alert('还不扫寻思啥呢')
+        this.$router.go(0);
+     
+        }
+        if(ret.data.order_status==1){
+            alert('干得漂亮')
+        }
+    })
+      }
+}}
 </script>
 <style lang="scss" scope>
   .imga {
