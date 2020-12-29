@@ -63,7 +63,7 @@ export default {
       getyz(){
            this.$http.get(uri.getorderPayStatusCheck+`?_oid=${this.cc}`).then(ret=>{
         if(ret.data.order_status==0){
-         alert('超时了兄弟')
+         alert('还不扫寻思啥呢')
         this.$router.go(0);
      
         }
