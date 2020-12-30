@@ -14,7 +14,7 @@ export default {
 
     gettowlist:"https://www.fastmock.site/mock/c9f35a6d14adb4c434286ca22844ff69/v1/twolist",
     //参数gcId和page,gcID是二级商品信息的名字
-    getthreelist:`https://mobileway.lecuntao.com/lct?api_version=2.3.0&platType=2&client=wap&isEncry=0&time=${time}&act=goods&op=goodsList`,
+    getthreelist:`https://api.i-lynn.cn/ApiProxy?api_version=2.3.0&platType=2&client=wap&isEncry=0&time=1608853631804&act=goods&op=goodsList`,
 
     //参数goods_id   common_id
     getdetail:"https://mobileway.lecuntao.com/lct?api_version=2.3.0&platType=2&client=wap&isEncry=0&time=1608853631804&act=goods&op=goodsList",

@@ -40,8 +40,7 @@
     },
     methods: {
       onSave(val) {
-        console.log(val);
-        this.$http.get("/api/info").then((ret) => {
+        this.$http.get("http://39.97.219.143:8888/api/v1/user/info").then((ret) => {
           if (ret.code == 0) {
             let address = JSON.parse(
               localStorage.getItem(ret.userinfo.mobile + ":address")
@@ -100,13 +99,10 @@
       },
     },
     created() {
-      console.log(123);
       this.$store.commit("isShowFooterNav", false);
       let add1 = JSON.parse(localStorage.getItem("setAdd"));
       if (add1) {
-        console.log(add1);
         this.data = add1;
-        console.log(this.data);
       }
     },
     beforeDestroy() {

@@ -32,7 +32,7 @@
       if (!x) {
         return;
       } else {
-        this.$http.get("/api/info").then((ret) => {
+        this.$http.get("http://39.97.219.143:8888/api/v1/user/info").then((ret) => {
           if (ret.code === 0) {
             this.list = ret.userinfo.mobile;
           }

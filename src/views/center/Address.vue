@@ -46,7 +46,6 @@
       onEdit(item, index) {
         localStorage.setItem("setAdd", JSON.stringify(item));
         this.$router.push("/modaddress");
-        console.log(item);
       },
       onClickLeft() {
         // Toast("返回");
@@ -55,7 +54,7 @@
     },
     created() {
       this.$store.commit("isShowFooterNav", false);
-      this.$http.get("/api/info").then((ret) => {
+      this.$http.get("http://39.97.219.143:8888/api/v1/user/info").then((ret) => {
         if (
           JSON.parse(localStorage.getItem(ret.userinfo.mobile + ":address"))
         ) {
@@ -68,7 +67,6 @@
                 this.chosenAddressId = v.id;
               }
             });
-            console.log(this.list);
           } else {
             Toast(ret.msg);
             this.$router.push("/user/login");

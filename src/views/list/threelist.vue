@@ -55,11 +55,9 @@
     },
     created() {
       this.gcId = this.$route.params.gc_id;
-      // console.log(this.$route.params);
       this.$http
         .post(uri.getthreelist, `page=1&gcId=${this.gcId}`)
         .then((ret) => {
-          console.log(ret);
           this.list = ret.datas.list;
           this.total = ret.datas.page_count;
           this.isShow = false;
@@ -84,8 +82,7 @@
       },
       addToCart(item) {
         if (this.$store.state.jwt) {
-          this.$http.get("/api/info").then((ret) => {
-            // console.log(ret);
+          this.$http.get("http://39.97.219.143:8888/api/v1/user/info").then((ret) => {
             if (ret.code == 0) {
               let list = JSON.parse(localStorage.getItem(ret.userinfo.mobile));
               if (list) {
@@ -122,9 +119,7 @@
               }
               item.buy = true;
               item.num = 1;
-              console.log(item);
             } else {
-              console.log(ret);
               Toast(ret.msg + "2s后进行跳转");
               setTimeout(() => {
                 this.$router.push("/user/login");
