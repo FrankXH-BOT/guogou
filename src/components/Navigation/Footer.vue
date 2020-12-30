@@ -1,5 +1,5 @@
 <template>
-  <div class="foot">
+  <div class="foot" v-show="$store.state.isShowFooter">
     <van-tabbar v-model="active" placeholder  @change="changeTab" active-color="rgb(79, 192, 141)">
       <van-tabbar-item ><van-icon
                     class="iconfont icon-index-copy"
@@ -53,8 +53,7 @@ export default {
     },
     watch: {
         $route: function(val){
-            
-            this.active = this.url.indexOf(val.fullPath);
+            this.active = this.url.indexOf(val.path);
         }
     }
 };

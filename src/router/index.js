@@ -23,7 +23,7 @@ const routes = [
   list,
   Detail,
   alipay,
-
+  
   ...Center,
   { path: "*", component: Notfound },
 

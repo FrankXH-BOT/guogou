@@ -8,12 +8,14 @@ import Question from "@/views/center/Question";
 import Discount from "@/views/center/Discount";
 import Address from "@/views/center/Address";
 import AddAddress from "@/views/center/AddAddress";
+import ModAddress from "@/views/center/ModAddress";
 import Logout from "@/views/center/Logout"
 export default [
     {path: "/center", component: Center},
     { path: '/discount', component: Discount },
     { path: '/address', component: Address },
     { path: '/addaddress', component: AddAddress },
+    { path: '/modaddress', component: ModAddress },
     {
         path:"/Logout",component:Logout
     },
