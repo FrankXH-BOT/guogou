@@ -1,7 +1,7 @@
 <template>
   <div>
     <van-nav-bar
-      title="添加地址"
+      title="编辑地址"
       left-text="返回"
       left-arrow
       @click-left="onClickLeft"
@@ -36,49 +36,52 @@
         areaList: area,
         searchResult: [],
         data: {},
+        bool1: false,
       };
     },
     methods: {
       onSave(val) {
-        console.log(val);
         this.$http.get("/api/info").then((ret) => {
           if (ret.code == 0) {
             let address = JSON.parse(
               localStorage.getItem(ret.userinfo.mobile + ":address")
             );
-            if (address) {
-              let id = 0;
-              address.forEach((v) => {
-                if (v.id > id) {
-                  id = v.id;
+            // address.forEach((v,k)=>{
+            //     if(v.id == val.id) {
+            //         address[k] = val;
+            //     }
+            // })
+            let bool = false;
+            address.forEach((v, k) => {
+              if (v.id == val.id) {
+                address[k] = val;
+                if (val.isDefault == true) {
+                  bool = true;
+                  this.bool1 = true;
                 }
-              });
-              id++;
-              val.id = id;
-              val.address =
-                val.province + val.city + val.county + val.addressDetail;
+              }
+            });
+            if (bool) {
               address.forEach((v) => {
-                if (val.isDefault) {
+                if (v.id != val.id) {
                   v.isDefault = false;
                 }
               });
-              address.push(val);
-              localStorage.setItem(
-                ret.userinfo.mobile + ":address",
-                JSON.stringify(address)
-              );
-            } else {
-              let list1 = [];
-              val.id = 0;
-              val.address =
-                val.province + val.city + val.county + val.addressDetail;
-              val.isDefault = true;
-              list1.push(val);
-              localStorage.setItem(
-                ret.userinfo.mobile + ":address",
-                JSON.stringify(list1)
-              );
             }
+            address.forEach((v) => {
+              if (v.isDefault == true) {
+                this.bool1 = true;
+              } else {
+                this.bool1 = false;
+              }
+            });
+            if (this.bool1 == false) {
+              address[0].isDefault = true;
+            }
+            localStorage.setItem(
+              ret.userinfo.mobile + ":address",
+              JSON.stringify(address)
+            );
             this.$router.go(-1);
           } else {
             Toast(ret.msg);
@@ -86,8 +89,28 @@
           }
         });
       },
-      onDelete() {
-        Toast("delete");
+      onDelete(val) {
+        this.$http.get("/api/info").then((ret) => {
+          if (ret.code == 0) {
+            let address = JSON.parse(
+              localStorage.getItem(ret.userinfo.mobile + ":address")
+            );
+            address.forEach((v, k) => {
+              if (v.id == val.id) {
+                if (val.isDefault == true) {
+                  address[0].isDefault = true;
+                }
+                address.splice(k, 1);
+                localStorage.setItem(
+                  ret.userinfo.mobile + ":address",
+                  JSON.stringify(address)
+                );
+                this.$router.go(-1);
+                return;
+              }
+            });
+          }
+        });
       },
       onChangeDetail(val) {
         if (val) {

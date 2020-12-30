@@ -51,6 +51,9 @@
         code: 0,
       };
     },
+    created() {
+      this.$store.commit("isShowFooterNav", false);
+    },
     methods: {
       justify() {
         if (this.pattern.test(this.mobile)) {
@@ -77,7 +80,7 @@
                   // console.log(ret1);
                   Toast(ret.msg + ",2s后跳转登录页面！");
                   setTimeout(() => {
-                    this.$router.push('/user/login');
+                    this.$router.push("/user/login");
                     console.log(123);
                   }, 2000);
                 });
@@ -85,14 +88,13 @@
                 Toast("注册失败，请稍后在试！");
               }
             });
-          }else {
-            Toast('两次账号输入不一致，请检查后提交！')
+          } else {
+            Toast("两次账号输入不一致，请检查后提交！");
           }
-        }else {
+        } else {
           Toast("该账号已被注册！");
         }
       },
     },
   };
 </script>
-

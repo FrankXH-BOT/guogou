@@ -27,7 +27,7 @@
       };
     },
     created() {
-      this.$store.commit("isShowFooterNav", false);
+      // this.$store.commit("isShowFooterNav", false);
       let x = localStorage.getItem("jwt");
       if (!x) {
         return;
@@ -39,8 +39,8 @@
         });
       }
     },
-    beforeDestroy() {
-      this.$store.commit("isShowFooterNav", true);
+    mounted() {
+      this.$store.commit("isShowFooterNav", false);
     },
     methods: {
       logout() {

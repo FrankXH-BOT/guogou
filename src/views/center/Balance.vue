@@ -27,9 +27,9 @@
     created() {
       this.$store.commit("isShowFooterNav", false);
     },
-    beforeDestroy() {
-      this.$store.commit("isShowFooterNav", true);
-    },
+    // beforeDestroy() {
+    //   this.$store.commit("isShowFooterNav", true);
+    // },
   };
 </script>
 <style lang="scss" scope>

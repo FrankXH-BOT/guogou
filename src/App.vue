@@ -4,7 +4,7 @@
     
     <!-- <router-view/> -->
     <router-view></router-view>
-    <Footer  v-show="$store.state.isShowFooter" ></Footer>
+    <Footer v-show="$store.state.isShowFooter" ></Footer>
 
   </div>
 </template>
@@ -14,7 +14,6 @@
 export default {
   components: {
         Footer,
-        
     }, 
     created() {
       let jwt = localStorage.getItem('jwt');
@@ -29,6 +28,16 @@ export default {
         this.$store.commit("setonecity","安徽省")
         this.$store.commit("settwocity","安庆市")
       }
+    },
+    watch: {
+      $route(val) {
+        let path = ['/frist','/list/twolist','/center','threelist']
+        if(path.includes((val.fullPath.split('?')[0]))){
+          this.$store.commit('isShowFooterNav',true);
+        }else {
+          this.$store.commit('isShowFooterNav',false);
+        }
+      },
     },
 }
 </script>

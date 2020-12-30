@@ -27,7 +27,7 @@
   export default {
     data() {
       return {
-        chosenAddressId: "1",
+        chosenAddressId: 0,
         list: [],
         disabledList: [
           {
@@ -41,10 +41,12 @@
     },
     methods: {
       onAdd() {
-        this.$router.push("/addAddress");
+        this.$router.push("/addaddress");
       },
       onEdit(item, index) {
-        console.log(index);
+        localStorage.setItem("setAdd", JSON.stringify(item));
+        this.$router.push("/modaddress");
+        console.log(item);
       },
       onClickLeft() {
         // Toast("返回");
@@ -52,19 +54,27 @@
       },
     },
     created() {
-      console.log(123);
+      this.$store.commit("isShowFooterNav", false);
       this.$http.get("/api/info").then((ret) => {
-        if (ret.code == 0) {
-          this.list = JSON.parse(localStorage.getItem(ret.userinfo.mobile + ':address'));
-          console.log(this.list);
-        } else {
-          Toast(ret.msg);
-          this.$router.push("/user/login");
+        if (
+          JSON.parse(localStorage.getItem(ret.userinfo.mobile + ":address"))
+        ) {
+          if (ret.code == 0) {
+            this.list = JSON.parse(
+              localStorage.getItem(ret.userinfo.mobile + ":address")
+            );
+            this.list.forEach((v) => {
+              if (v.isDefault == true) {
+                this.chosenAddressId = v.id;
+              }
+            });
+            console.log(this.list);
+          } else {
+            Toast(ret.msg);
+            this.$router.push("/user/login");
+          }
         }
       });
-    },
-    mounted() {
-      console.log(123);
     },
   };
 </script>
