@@ -32,7 +32,10 @@
             ></van-checkbox>
 
             <div class="look_img">
-              <img style="width: 84px" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1433308187,332294083&fm=11&gp=0.jpg" />
+              <img
+                style="width: 84px"
+                src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1433308187,332294083&fm=11&gp=0.jpg"
+              />
             </div>
             <div class="detailed">
               <div class="detailed_1">
@@ -125,11 +128,13 @@
         this.$router.push("/frist");
       },
       onSubmit() {
-        console.log(this.price / 100);
-        this.$router.push('/alipay')
+        if (this.datas.length) {
+          this.$router.push("/alipay");
+        } else {
+          return false;
+        }
       },
       checkAll() {
-        console.log(this.check);
 
         this.datas.forEach((v) => {
           v.buy = this.check;
@@ -144,14 +149,10 @@
         });
       },
       plus(val) {
-        console.log(val);
         val.num++;
-        // console.log(val);
       },
       minus(val) {
-        console.log(val);
         val.num--;
-        // console.log(val);
       },
     },
     filters: {
@@ -161,7 +162,7 @@
     },
     async created() {
       this.$store.commit("isShowFooterNav", false);
-      let ret = await this.$http("http://localhost/api/v1/user/info");
+      let ret = await this.$http("http://39.97.219.143:8888/api/v1/user/info");
       if (ret.code == 0) {
         this.mobile = ret.userinfo.mobile;
         let data_ = JSON.parse(localStorage.getItem(this.mobile));

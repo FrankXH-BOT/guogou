@@ -46,9 +46,7 @@
     },
     methods: {
       onSubmit(values) {
-        // console.log("submit", values);
-        this.$http.post("http://localhost/api/v1/user/login", values).then((ret) => {
-          console.log(ret);
+        this.$http.post("http://39.97.219.143:8888/api/v1/user/login", values).then((ret) => {
           if (ret.code == 0) {
             this.$store.commit("setJwt", ret.jwt);
             Toast(ret.msg + "2s后跳转");

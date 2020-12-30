@@ -42,7 +42,6 @@ export default {
   },
   created() {
     this.$http.get(url.getcity).then((ret) => {
-      console.log(ret);
       this.list = ret.datas;
       ret.datas.forEach((v) => {
         this.columns.push(v.province_name);
@@ -54,7 +53,6 @@ export default {
       this.show = true;
     },
     onConfirm(val, index) {
-      console.log(val,index);
       this.$store.commit("setonecity",val)
       let x = 340;
       this.$http.post(url.getcitytwo + x).then((ret) => {

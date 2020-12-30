@@ -58,7 +58,7 @@
       justify() {
         if (this.pattern.test(this.mobile)) {
           this.$http
-            .post("http://localhost/api/v1/user/mobileisreg", { mobile: this.mobile })
+            .post("http://39.97.219.143:8888/api/v1/user/mobileisreg", { mobile: this.mobile })
             .then((ret) => {
               if (ret.code == 900) {
                 Toast.fail(ret.msg);
@@ -73,15 +73,12 @@
       onSubmit(values) {
         if (this.code === 0) {
           if (this.password === this.confirmPassword) {
-            this.$http.post("http://localhost/api/v1/user/register", values).then((ret) => {
-              console.log(ret);
+            this.$http.post("http://39.97.219.143:8888/api/v1/user/register", values).then((ret) => {
               if (ret.code == 0) {
-                this.$http.get("http://localhost/api/v1/user/info").then((ret1) => {
-                  // console.log(ret1);
+                this.$http.get("http://39.97.219.143:8888/api/v1/user/info").then((ret1) => {
                   Toast(ret.msg + ",2s后跳转登录页面！");
                   setTimeout(() => {
                     this.$router.push("/user/login");
-                    console.log(123);
                   }, 2000);
                 });
               } else {

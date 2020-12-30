@@ -20,12 +20,6 @@
     // beforeDestroy() {
     //   this.$store.commit("isShowFooterNav", true);
     // },
-    watch: {
-      $route(val) {
-        console.log(this.$store.state.isShowFooter);
-        console.log(val);
-      },
-    },
   };
 </script>
 
