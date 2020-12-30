@@ -47,7 +47,7 @@
     methods: {
       onSubmit(values) {
         // console.log("submit", values);
-        this.$http.post("/api/login", values).then((ret) => {
+        this.$http.post("http://localhost/api/v1/user/login", values).then((ret) => {
           console.log(ret);
           if (ret.code == 0) {
             this.$store.commit("setJwt", ret.jwt);

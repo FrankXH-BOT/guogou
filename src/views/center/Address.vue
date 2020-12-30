@@ -55,7 +55,7 @@
     },
     created() {
       this.$store.commit("isShowFooterNav", false);
-      this.$http.get("/api/info").then((ret) => {
+      this.$http.get("http://localhost/api/v1/user/info").then((ret) => {
         if (
           JSON.parse(localStorage.getItem(ret.userinfo.mobile + ":address"))
         ) {

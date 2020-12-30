@@ -41,7 +41,7 @@
     methods: {
       onSave(val) {
         console.log(val);
-        this.$http.get("/api/info").then((ret) => {
+        this.$http.get("http://localhost/api/v1/user/info").then((ret) => {
           if (ret.code == 0) {
             let address = JSON.parse(
               localStorage.getItem(ret.userinfo.mobile + ":address")

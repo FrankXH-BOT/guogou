@@ -42,7 +42,7 @@ router.beforeEach((to, from, next) => {
     '/balance',
   ];
   if (arr.includes(to.path)) {
-    axios.get('/api/info').then(ret => {
+    axios.get('http://localhost/api/v1/user/info').then(ret => {
       if (ret.code != 0) {
         localStorage.setItem('jwt', '');
         console.log(to);

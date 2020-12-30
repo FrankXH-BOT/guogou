@@ -161,7 +161,7 @@
     },
     async created() {
       this.$store.commit("isShowFooterNav", false);
-      let ret = await this.$http("/api/info");
+      let ret = await this.$http("http://localhost/api/v1/user/info");
       if (ret.code == 0) {
         this.mobile = ret.userinfo.mobile;
         let data_ = JSON.parse(localStorage.getItem(this.mobile));

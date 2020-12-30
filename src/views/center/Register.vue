@@ -58,7 +58,7 @@
       justify() {
         if (this.pattern.test(this.mobile)) {
           this.$http
-            .post("/api/mobileisreg", { mobile: this.mobile })
+            .post("http://localhost/api/v1/user/mobileisreg", { mobile: this.mobile })
             .then((ret) => {
               if (ret.code == 900) {
                 Toast.fail(ret.msg);
@@ -73,10 +73,10 @@
       onSubmit(values) {
         if (this.code === 0) {
           if (this.password === this.confirmPassword) {
-            this.$http.post("/api/register", values).then((ret) => {
+            this.$http.post("http://localhost/api/v1/user/register", values).then((ret) => {
               console.log(ret);
               if (ret.code == 0) {
-                this.$http.get("/api/info").then((ret1) => {
+                this.$http.get("http://localhost/api/v1/user/info").then((ret1) => {
                   // console.log(ret1);
                   Toast(ret.msg + ",2s后跳转登录页面！");
                   setTimeout(() => {

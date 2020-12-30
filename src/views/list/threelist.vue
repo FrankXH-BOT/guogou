@@ -84,7 +84,7 @@
       },
       addToCart(item) {
         if (this.$store.state.jwt) {
-          this.$http.get("/api/info").then((ret) => {
+          this.$http.get("http://localhost/api/v1/user/info").then((ret) => {
             // console.log(ret);
             if (ret.code == 0) {
               let list = JSON.parse(localStorage.getItem(ret.userinfo.mobile));
