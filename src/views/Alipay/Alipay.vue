@@ -20,6 +20,7 @@
       return {
         aa: "",
         cc: "",
+        time:1,
       };
     },
 
@@ -36,13 +37,16 @@
           this.aa = "https:" + data.qr_code;
           this.cc = data.order_id;
         });
-      setTimeout(() => {
+      this.time=setTimeout(() => {
         this.getyz();
-      }, 120000);
+      }, 5000);
       this.$store.commit("isShowFooterNav", false);
     },
     mounted() {
       this.$store.commit("isShowFooterNav", false);
+    },
+    beforeDestroy() {
+      clearTimeout(this.time);
     },
 
     methods: {

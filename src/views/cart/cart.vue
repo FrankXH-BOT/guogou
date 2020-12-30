@@ -128,7 +128,7 @@
         this.$router.push("/frist");
       },
       onSubmit() {
-        if (this.datas.length) {
+        if (this.datas.length&&this.Select.length) {
           this.$router.push("/alipay");
         } else {
           return false;
