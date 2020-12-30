@@ -17,7 +17,7 @@
       :origin-price="item.goods_marketprice"
       v-for="item in list"
       :key="item.goods_id"
-      thumb="http://127.0.0.1/city1.php"
+      thumb="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1433308187,332294083&fm=11&gp=0.jpg"
     >
       <template #tags>
         <van-tag plain type="danger">{{ item.store_name }}</van-tag>

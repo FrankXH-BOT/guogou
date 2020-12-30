@@ -32,7 +32,7 @@
             ></van-checkbox>
 
             <div class="look_img">
-              <img style="width: 84px" src="http://127.0.0.1/city1.php" />
+              <img style="width: 84px" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1433308187,332294083&fm=11&gp=0.jpg" />
             </div>
             <div class="detailed">
               <div class="detailed_1">
